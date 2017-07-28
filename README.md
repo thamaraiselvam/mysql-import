@@ -1,20 +1,20 @@
 # Import-.sql-file-using-php
 
-edit following files 
+Replace the following details with your database credentials
 
-'// Name of the file
-$filename = 'db-backup-1426746323-fa5bfef761fada0cc5531454fec94cad.sql';
+// Name of the file
+`$filename = 'my_db.sql';`
 
 // MySQL host
-$mysql_host = 'localhost';
+`$mysql_host = 'localhost';`
 
 // MySQL username
-$mysql_username = 'root';
+`$mysql_username = 'username';`
 
 // MySQL password
-$mysql_password = '';
+`$mysql_password = 'password';`
 
 // Database name
-$mysql_database = 'test';'
+`$mysql_database = 'db_name';'`
 
 before import your database , delete all existing table which are already in the .sql file
