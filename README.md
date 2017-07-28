@@ -1,15 +1,23 @@
-# Import-.sql-file-using-php
+This script import the sql queries from a file to mysql database.
 
-Replace the following details with your database credentials
+Tested : PHPMyAdmin Export, Adminer Export, InfiniteWP Database Backup file, ManageWP Database Backup file and WP Time Capsule Database Backup file
 
-`$filename = 'my_db.sql';`
+Steps to Run the secript.
+
+1.Clone this repo
+
+2.Open the `import.php` and replace following varialbles with your Database credentials
+
+`$filename = 'filname.sql';`
 
 `$mysql_host = 'localhost';`
 
-`$mysql_username = 'username';`
+`$mysql_username = 'USERNAME';`
 
-`$mysql_password = 'password';`
+`$mysql_password = 'PASSWORD';`
 
-`$mysql_database = 'db_name';'`
+`$mysql_database = 'DB_NAME';'`
 
-before import your database , delete all existing table which are already in the .sql file
+3.Run the `import.php`
+
+That's it.
