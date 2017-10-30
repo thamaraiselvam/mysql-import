@@ -1,5 +1,8 @@
 <?php
 
+//Uncomment this below line for larger database to allow script to execute long time
+// set_time_limit(0);
+
 // database file path
 $filename = 'filaname.sql';
 
@@ -24,11 +27,12 @@ if (mysqli_connect_errno())
 // Temporary variable, used to store current query
 $templine = '';
 
+
 // Read in entire file
-$lines = file($filename);
+$fp = fopen($filename, 'r');
 
 // Loop through each line
-foreach ($lines as $line) {
+while (($line = fgets($fp)) !== false) {
 	// Skip it if it's a comment
 	if (substr($line, 0, 2) == '--' || $line == '')
 		continue;
@@ -48,5 +52,6 @@ foreach ($lines as $line) {
 }
 
 mysqli_close($connection);
+fclose($fp);
 
 echo "Database imported successfully";
