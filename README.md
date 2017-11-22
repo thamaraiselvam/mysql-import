@@ -26,4 +26,8 @@ Download here - <a href="https://github.com/thamaraiselvam/import-database-file-
 
 3.Run the `import.php`
 
-That's it.
+That's it. your database is imported :)
+
+Note: If you have very large database file then you have to enable the following line in the import.php to avoid PHP timeouts
+
+`set_time_limit(0);`
