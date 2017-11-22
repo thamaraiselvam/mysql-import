@@ -4,7 +4,13 @@ Tested : PHPMyAdmin Export, Adminer Export, InfiniteWP Database Backup file, Man
 
 Steps to Run the secript.
 
-1.Clone this repo
+1.Clone the repo 
+
+`git clone https://github.com/thamaraiselvam/import-database-file-using-php.git`
+
+OR
+
+Download here - <a href="https://github.com/thamaraiselvam/import-database-file-using-php/archive/master.zip">import-database-file-using-php</a>
 
 2.Open the `import.php` and replace following varialbles with your Database credentials
 
