@@ -44,7 +44,7 @@ while (($line = fgets($fp)) !== false) {
 	if (substr(trim($line), -1, 1) == ';') {
 		// Perform the query
 		if(!mysqli_query($connection, $templine)){
-			print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+			print('Error performing query \'<strong>' . $templine . '\': ' . mysqli_error($connection) . '<br /><br />');
 		}
 		// Reset temp variable to empty
 		$templine = '';
