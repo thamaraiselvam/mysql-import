@@ -34,5 +34,4 @@ Note: If you have very large database file then you have to enable the following
 
 If you want to import very large database without affect the server performance or memory peak. Try following repo.
 
-https://github.com/thamaraiselvam/import-large-database-file-using-php
-
+https://thamaraiselvam.github.io/import-large-database-file-using-php/
