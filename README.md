@@ -1,37 +1,28 @@
-This script import the sql queries from a file to mysql database.
+# php Import SQL
+mysqli import sql from a .sql file
 
-Tested : PHPMyAdmin Export, Adminer Export, InfiniteWP Database Backup file, ManageWP Database Backup file and WP Time Capsule Database Backup file
+### Install
 
-Steps to Run the secript.
+Using composer include the repository by typing the following into a terminal
 
-1.Clone the repo 
+```
+composer require thamaraiselvam/mysql-import
+```
 
-`git clone https://github.com/thamaraiselvam/import-database-file-using-php.git`
+### Usage
 
-OR
+Include the composer autoloader, import the Import namespace.
 
-Download here - <a href="https://github.com/thamaraiselvam/import-database-file-using-php/archive/master.zip">import-database-file-using-php</a>
+```
+<?php
+require('vendor/autoload.php');
 
-2.Open the `import.php` and replace following varialbles with your Database credentials
+use Thamaraiselvam\MysqlImport\Import;
 
-`$filename = 'filname.sql';`
-
-`$mysql_host = 'localhost';`
-
-`$mysql_username = 'USERNAME';`
-
-`$mysql_password = 'PASSWORD';`
-
-`$mysql_database = 'DB_NAME';'`
-
-3.Run the `import.php`
-
-That's it. your database is imported :)
-
-Note: If you have very large database file then you have to enable the following line in the import.php to avoid PHP timeouts
-
-`set_time_limit(0);`
-
-If you want to import very large database without affect the server performance or memory peak. Try following repo.
-
-https://github.com/thamaraiselvam/import-large-database-file-using-php
+$filename = 'database.sql';
+$username = 'root';
+$password = '';
+$database = 'sampleproject';
+$host = 'localhost';
+new Import($filename, $username, $password, $database, $host);
+```
