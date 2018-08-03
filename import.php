@@ -1,6 +1,6 @@
 <?php
 
-namespace Thamaraiselvam\MySqlImport;
+namespace Thamaraiselvam\MysqlImport;
 
 use mysqli;
 use Exception;
