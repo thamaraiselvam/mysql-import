@@ -4,7 +4,7 @@
 
 <a href="https://www.buymeacoffee.com/R8Nc2vn" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
-mysqli import sql from a .sql file
+Import MySQL database backup files easily with <strong>MySQL Import</strong>
 
 ### Install
 
