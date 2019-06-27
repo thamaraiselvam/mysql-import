@@ -1,6 +1,6 @@
 # MySQL Importer
 
-<img alt="Packagist" src="https://img.shields.io/packagist/dd/thamaraiselvam/mysql-import.svg"> <img alt="Packagist" src="https://img.shields.io/packagist/dm/thamaraiselvam/mysql-import.svg"> <img alt="Packagist" src="https://img.shields.io/packagist/dt/thamaraiselvam/mysql-import.svg"> <img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/tag/thamaraiselvam/mysql-import.svg"> <img alt="GitHub" src="https://img.shields.io/github/license/thamaraiselvam/mysql-import.svg">
+<img alt="Packagist" src="https://img.shields.io/packagist/dd/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="Packagist" src="https://img.shields.io/packagist/dm/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="Packagist" src="https://img.shields.io/packagist/dt/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/tag/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/thamaraiselvam/mysql-import.svg?style=for-the-badge">
 
 <a href="https://www.buymeacoffee.com/R8Nc2vn" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
