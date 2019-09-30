@@ -43,8 +43,8 @@ class Import {
 	/**
 	 * Connect to the database
 	*/
-	private function connect() {
-		$this->db = new mysqli($this->host, $this->username, $this->password, $this->database);
+	protected function connect() {
+		$this->db = $this->createconnection();
 		if ($this->db->connect_errno) {
 			throw new Exception("Failed to connect to MySQL: " . $this->db->connect_error);
 		}
@@ -54,7 +54,7 @@ class Import {
 	 * run queries
 	 * @param string $query the query to perform
 	*/
-	private function query($query) {
+	protected function query($query) {
 		if(!$this->db->query($query)){
 			throw new Exception("Error with query: ".$this->db->error."\n");
 		}
@@ -105,4 +105,8 @@ class Import {
 			echo "Error importing: ".$e->getMessage()."\n";
 		}
 	}
+
+	protected function createconnection() {
+	    return new mysqli($this->host, $this->username, $this->password, $this->database);
+    }
 }
