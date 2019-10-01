@@ -3,3 +3,6 @@
 
 # ignore Composer downloads
 /vendor/*
+
+# ignore Composer.lock
+composer.lock
