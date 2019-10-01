@@ -99,11 +99,11 @@ class Import {
 
 			//close the file
 		   fclose($fp);
-		   $this->db->close();
-
 		} catch(Exception $e) {
 			echo "Error importing: ".$e->getMessage()."\n";
-		}
+		} finally {
+		    $this->db->close();
+        }
 	}
 
 	/**
