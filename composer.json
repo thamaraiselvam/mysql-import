@@ -11,12 +11,18 @@
         }
     ],
     "require": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "squizlabs/php_codesniffer": "^3.0@dev"
     },
     "autoload": {
         "psr-4": {
             "Thamaraiselvam\\MysqlImport\\": "/"
         }
+    },
+    "scripts": {
+      "phpcs": [
+        "./vendor/bin/phpcs --colors --standard=PSR2 Import.php"
+      ]
     },
     "minimum-stability": "dev"
 }
