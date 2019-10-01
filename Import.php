@@ -105,14 +105,15 @@ class Import
         } catch (Exception $e) {
             echo "Error importing: ".$e->getMessage()."\n";
         } finally {
-		    $this->db->close();
+            $this->db->close();
         }
     }
 
-	/**
+    /**
      * @codeCoverageIgnore
      */
-	protected function createconnection() {
-	    return new mysqli($this->host, $this->username, $this->password, $this->database);
+    protected function createconnection()
+    {
+        return new mysqli($this->host, $this->username, $this->password, $this->database);
     }
 }
