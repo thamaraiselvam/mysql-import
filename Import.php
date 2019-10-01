@@ -63,7 +63,7 @@ class Import {
 	/**
 	 * Open $filename, loop through and import the commands
 	*/
-	private function openfile() {
+	protected function openfile() {
 		try {
 
 			//if file cannot be found throw errror

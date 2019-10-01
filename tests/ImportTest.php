@@ -5,11 +5,70 @@ namespace Tests\Thamaraiselvam\MysqlImport;
 use Exception;
 use PHPUnit_Framework_TestCase;
 use ReflectionMethod;
+use ReflectionProperty;
 use stdClass;
 use Thamaraiselvam\MysqlImport\Import;
 
 class ImportTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @dataProvider constructorSetVariablesDataProvider
+     */
+    public function testConstructorSetVariables(
+        $expectedFilename,
+        $expectedUsername,
+        $expectedPassword,
+        $expectedDatabase,
+        $expectedHost
+    )
+    {
+        // Creating mock, we expect
+        // that constructor will call
+        // connect and openfile methods
+        $mock = $this->createPartialMock(
+            Import::class,
+            array('connect', 'openfile')
+        );
+        $mock->expects($this->once())->method('connect');
+        $mock->expects($this->once())->method('openfile');
+
+        // Call constructor
+        $constructMethod = new ReflectionMethod(Import::class, '__construct');
+        $constructMethod->invoke(
+            $mock,
+            $expectedFilename,
+            $expectedUsername,
+            $expectedPassword,
+            $expectedDatabase,
+            $expectedHost
+        );
+
+        // Getting properties
+        $filenameProperty = new ReflectionProperty(Import::class, 'filename');
+        $filenameProperty->setAccessible(true);
+        $usernameProperty = new ReflectionProperty(Import::class, 'username');
+        $usernameProperty->setAccessible(true);
+        $passwordProperty = new ReflectionProperty(Import::class, 'password');
+        $passwordProperty->setAccessible(true);
+        $databaseProperty = new ReflectionProperty(Import::class, 'database');
+        $databaseProperty->setAccessible(true);
+        $hostProperty = new ReflectionProperty(Import::class, 'host');
+        $hostProperty->setAccessible(true);
+
+        // Assertions
+        $this->assertEquals($expectedFilename, $filenameProperty->getValue($mock));
+        $this->assertEquals($expectedUsername, $usernameProperty->getValue($mock));
+        $this->assertEquals($expectedPassword, $passwordProperty->getValue($mock));
+        $this->assertEquals($expectedDatabase, $databaseProperty->getValue($mock));
+        $this->assertEquals($expectedHost, $hostProperty->getValue($mock));
+    }
+
+    public function constructorSetVariablesDataProvider()
+    {
+        return array(
+            array('filename', 'username', 'password', 'database', 'host')
+        );
+    }
 
     public function testExceptionOnConnection()
     {
