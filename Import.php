@@ -106,6 +106,9 @@ class Import {
 		}
 	}
 
+	/**
+     * @codeCoverageIgnore
+     */
 	protected function createconnection() {
 	    return new mysqli($this->host, $this->username, $this->password, $this->database);
     }
