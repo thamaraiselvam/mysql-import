@@ -127,6 +127,80 @@ class ImportTest extends PHPUnit_Framework_TestCase
         $queryMethod->invoke($mock, 'Second run');
     }
 
+    /**
+     * TODO: Test text provided to query method?
+     *
+     * @dataProvider openfileDataProvider
+     */
+    public function testOpenfile($filepath, $queriesCount)
+    {
+        $mock = $this->getImportMockForOpenfile($queriesCount);
+        // Call constructor
+        $constructMethod = new ReflectionMethod(Import::class, '__construct');
+        $constructMethod->invoke(
+            $mock,
+            $filepath,
+            'does not matter',
+            'does not matter',
+            'does not matter',
+            'does not matter'
+        );
+    }
+
+    public function openfileDataProvider()
+    {
+        return array(
+            array(dirname(__FILE__) . '/fixtures/sample.txt', 3)
+        );
+    }
+
+    /**
+     * @dataProvider openfileExceptionDataProvider
+     */
+    public function testOpenfileException($filepath, $expectedOutputMessage)
+    {
+        $mock = $this->getImportMockForOpenfile(0);
+        // Call constructor
+        $constructMethod = new ReflectionMethod(Import::class, '__construct');
+
+        $this->expectOutputString($expectedOutputMessage);
+        $constructMethod->invoke(
+            $mock,
+            $filepath,
+            'does not matter',
+            'does not matter',
+            'does not matter',
+            'does not matter'
+        );
+    }
+
+    public function openfileExceptionDataProvider()
+    {
+        return array(
+            array(dirname(__FILE__) . '/fixtures/not_existing_file', "Error importing: Error: File not found.\n\n")
+        );
+    }
+
+    protected function getImportMockForOpenfile($queryCallTimes)
+    {
+        // Creating db mock, expecting query method
+        // will be called n times and we expected
+        // db connection close on finish
+        $dbMock = $this->createPartialMock(
+            stdClass::class,
+            array('query', 'close')
+        );
+        $dbMock->expects($queryCallTimes > 0 ? $this->exactly($queryCallTimes) : $this->never())
+               ->method('query')
+               ->with($this->anything())
+               ->will($this->returnValue(true));
+
+        $dbMock->expects($this->once())
+               ->method('close');
+
+        return $this->getImportMock($dbMock);
+    }
+
     protected function getImportMock($dbMock)
     {
         // Creating Import mock and defining
