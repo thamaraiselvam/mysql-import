@@ -10,4 +10,6 @@ before_install:
 install:
   - travis_retry composer install --no-interaction --prefer-source
  
-script: composer phpcs
+script:
+  - composer phpcs
+  - composer phpunit

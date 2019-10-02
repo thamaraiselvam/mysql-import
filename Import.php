@@ -45,9 +45,9 @@ class Import
     /**
      * Connect to the database
     */
-    private function connect()
+    protected function connect()
     {
-        $this->db = new mysqli($this->host, $this->username, $this->password, $this->database);
+        $this->db = $this->createconnection();
         if ($this->db->connect_errno) {
             throw new Exception("Failed to connect to MySQL: " . $this->db->connect_error);
         }
@@ -57,7 +57,7 @@ class Import
      * run queries
      * @param string $query the query to perform
     */
-    private function query($query)
+    protected function query($query)
     {
         if (!$this->db->query($query)) {
             throw new Exception("Error with query: ".$this->db->error."\n");
@@ -67,7 +67,7 @@ class Import
     /**
      * Open $filename, loop through and import the commands
     */
-    private function openfile()
+    protected function openfile()
     {
         try {
             //if file cannot be found throw errror
@@ -102,9 +102,18 @@ class Import
 
             //close the file
             fclose($fp);
-            $this->db->close();
         } catch (Exception $e) {
             echo "Error importing: ".$e->getMessage()."\n";
+        } finally {
+            $this->db->close();
         }
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    protected function createconnection()
+    {
+        return new mysqli($this->host, $this->username, $this->password, $this->database);
     }
 }

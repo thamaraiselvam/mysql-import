@@ -16,13 +16,20 @@
     },
     "autoload": {
         "psr-4": {
-            "Thamaraiselvam\\MysqlImport\\": "/"
+            "Thamaraiselvam\\MysqlImport\\": "./",
+            "Tests\\Thamaraiselvam\\MysqlImport\\": "./tests"
         }
     },
     "scripts": {
       "phpcs": [
         "./vendor/bin/phpcs --colors --standard=PSR2 Import.php"
+      ],
+      "phpunit": [
+        "./vendor/bin/phpunit"
       ]
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
+    }
 }
