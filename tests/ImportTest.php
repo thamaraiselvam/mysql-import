@@ -75,6 +75,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
         // Creating mock for mysqli which will return an errno != 0
         $dbMock = new stdClass();
         $dbMock->connect_errno = 1;
+        $dbMock->connect_error = 'test error message';
 
         // Now we reflect a connect method for later invoke
         // This is the only way to run protected method
@@ -86,7 +87,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
         // Setting expected exception and invoke connect method
         $this->expectException(Exception::class);
-        $this->expectExceptionMessageRegExp('/^Failed to connect to MySQL: /');
+        $this->expectExceptionMessage('Failed to connect to MySQL: test error message');
         $connectMethod->invoke($mock);
     }
 
@@ -98,6 +99,8 @@ class ImportTest extends PHPUnit_Framework_TestCase
             stdClass::class,
             array('query')
         );
+        $dbMock->connect_errno = 0;
+        $dbMock->error = 'test db error message';
 
         // We expect query method to be called twice
         // we don't care about the input arguments
@@ -123,7 +126,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
 
         // Second query will return false, exception expected
         $this->expectException(Exception::class);
-        $this->expectExceptionMessageRegExp('/^Error with query: /');
+        $this->expectExceptionMessage("Error with query: test db error message\n");
         $queryMethod->invoke($mock, 'Second run');
     }
 
@@ -190,6 +193,7 @@ class ImportTest extends PHPUnit_Framework_TestCase
             stdClass::class,
             array('query', 'close')
         );
+        $dbMock->connect_errno = 0;
         $dbMock->expects($queryCallTimes > 0 ? $this->exactly($queryCallTimes) : $this->never())
                ->method('query')
                ->with($this->anything())

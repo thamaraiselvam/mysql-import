@@ -7,7 +7,7 @@
     convertErrorsToExceptions   = "false"
     convertNoticesToExceptions  = "false"
     convertWarningsToExceptions = "false"
-    processIsolation            = "false"
+    processIsolation            = "true"
     stopOnFailure               = "false"
     syntaxCheck                 = "false">
 
