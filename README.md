@@ -7,6 +7,30 @@
 
 Import MySQL database backup files easily with <strong>MySQL Import</strong>
 
+## Development
+
+Run:
+
+```sh
+$ git clone https://github.com/thamaraiselvam/mysql-import.git
+$ cd mysql-import
+$ composer install
+```
+
+This will setup the library dependencies for you.
+
+To run tests, run
+
+```sh
+$ composer phpunit
+```
+
+To ensure your code is following the coding style, run
+
+```sh
+$ composer phpcs
+```
+
 ### Install
 
 Using composer include the repository by typing the following into a terminal
