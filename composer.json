@@ -23,6 +23,9 @@
     "scripts": {
       "phpcs": [
         "./vendor/bin/phpcs --colors --standard=PSR2 Import.php"
+      ],
+      "phpunit": [
+        "./vendor/bin/phpunit"
       ]
     },
     "minimum-stability": "dev",
