@@ -17,6 +17,7 @@ class Import
     private $password;
     private $database;
     private $host;
+    private $port;
 
     /**
       * instanciate
@@ -25,8 +26,9 @@ class Import
       * @param $password string database password
       * @param $database string database name
       * @param $host string address host localhost or ip address
+      * @param $port int port for the host, default is 3306
     */
-    public function __construct($filename, $username, $password, $database, $host)
+    public function __construct($filename, $username, $password, $database, $host, $port = 3306)
     {
         //set the varibles to properties
         $this->filename = $filename;
@@ -34,6 +36,7 @@ class Import
         $this->password = $password;
         $this->database = $database;
         $this->host = $host;
+        $this->port = $port;
 
         //connect to the datase
         $this->connect();
@@ -114,6 +117,6 @@ class Import
      */
     protected function createconnection()
     {
-        return new mysqli($this->host, $this->username, $this->password, $this->database);
+        return new mysqli($this->host, $this->username, $this->password, $this->database, $this->port);
     }
 }
