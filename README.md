@@ -1,5 +1,7 @@
 # MySQL Importer
 
+ ![ViewCount](https://views.whatilearened.today/views/github/thamaraiselvam/mysql-import.svg)
+
 <img alt="Packagist" src="https://img.shields.io/packagist/dd/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="Packagist" src="https://img.shields.io/packagist/dm/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="Packagist" src="https://img.shields.io/packagist/dt/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/tag/thamaraiselvam/mysql-import.svg?style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/thamaraiselvam/mysql-import.svg?style=for-the-badge">
 <img alt="Travis" src="https://img.shields.io/travis/thamaraiselvam/mysql-import?style=for-the-badge">
 
