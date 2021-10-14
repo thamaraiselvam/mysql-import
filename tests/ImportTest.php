@@ -3,13 +3,13 @@
 namespace Tests\Thamaraiselvam\MysqlImport;
 
 use Exception;
-use PHPUnit_Framework_TestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
 use Thamaraiselvam\MysqlImport\Import;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
-class ImportTest extends PHPUnit_Framework_TestCase
+class ImportTest extends TestCase
 {
     /**
      * @dataProvider constructorSetVariablesDataProvider
